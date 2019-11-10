@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace OWGoldenGuns
 {
@@ -19,9 +20,20 @@ namespace OWGoldenGuns
 			SettingsData.Load();
 			LocalizationUtils.LoadLocalizations();
 
-			if (!LocalizationUtils.IsAvailableLocale(SettingsData.Settings.CurrentLocale))
-				SettingsData.Settings.CurrentLocale = "en";
-			System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(SettingsData.Settings.CurrentLocale);
+			if (SettingsData.Settings.CurrentLocale != "")
+			{
+				if (!LocalizationUtils.IsAvailableLocale(SettingsData.Settings.CurrentLocale))
+					SettingsData.Settings.CurrentLocale = "en";
+			}
+			else
+			{
+				if (LocalizationUtils.IsAvailableLocale(CultureInfo.CurrentCulture.Name))
+					SettingsData.Settings.CurrentLocale = CultureInfo.CurrentCulture.Name;
+				else
+					SettingsData.Settings.CurrentLocale = "en";
+			}
+
+			CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(SettingsData.Settings.CurrentLocale);
 		}
 
 		private void Application_Exit(object sender, ExitEventArgs e)

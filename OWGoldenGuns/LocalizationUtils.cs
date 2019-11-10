@@ -16,9 +16,22 @@ namespace OWGoldenGuns
 
 		private static Dictionary<string, Dictionary<string, string>> LoadedLocales = new Dictionary<string, Dictionary<string, string>>();
 
-		public static bool IsAvailableLocale(string locale)
+		public static bool IsAvailableLocale(string loc)
 		{
-			return LoadedLocales.ContainsKey(locale);
+			var cul = CultureInfo.GetCultureInfo(loc);
+			string locale = cul.Name;
+			if (LoadedLocales.ContainsKey(locale))
+			{
+				return true;
+			}
+
+			locale = cul.TwoLetterISOLanguageName;
+			if (LoadedLocales.ContainsKey(locale))
+			{
+				return true;
+			}
+
+			return false;
 		}
 
 		public static List<string> GetAvailableLocales()

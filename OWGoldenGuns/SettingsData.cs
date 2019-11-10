@@ -30,7 +30,7 @@ namespace OWGoldenGuns
 			}
 
 			[JsonProperty("locale")]
-			private string _CurrentLocale = "en";
+			private string _CurrentLocale = "";
 			[JsonIgnore]
 			public string CurrentLocale
 			{
