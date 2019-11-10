@@ -60,6 +60,7 @@ namespace OWGoldenGuns
 		{
 			btn_add_profile.Content = LocalizationUtils.GetString("mainform_add_profile", "Add");
 			btn_remove_profile.Content = LocalizationUtils.GetString("mainform_remove_profile", "Remove");
+			l_about_app.Content = LocalizationUtils.GetString("mainform_about_this_app", "About this app");
 		}
 
 		private void UpdateProfilesList()
@@ -93,7 +94,7 @@ namespace OWGoldenGuns
 				HeroCard prev_card = null;
 				foreach (HeroCard u in prevChildren)
 				{
-					if (u.HeroID == n)
+					if (u.HeroData.HeroID == n)
 					{
 						prev_card = u;
 						wp_heroes.Children.Add(u);
@@ -121,8 +122,8 @@ namespace OWGoldenGuns
 
 				if (SaveData.Profiles.CurrentProfile != null)
 				{
-					if (SaveData.Profiles.CurrentProfile.IsGoldHeroes.ContainsKey(h.Key))
-						is_gold = SaveData.Profiles.CurrentProfile.IsGoldHeroes[h.Key];
+					if (SaveData.Profiles.CurrentProfile.IsGoldHeroes.ContainsKey(h.HeroID))
+						is_gold = SaveData.Profiles.CurrentProfile.IsGoldHeroes[h.HeroID];
 				}
 				else
 				{
@@ -131,8 +132,7 @@ namespace OWGoldenGuns
 
 				var new_card = new HeroCard()
 				{
-					HeroData = h.Value,
-					HeroID = h.Key,
+					HeroData = h,
 					IsGold = is_gold,
 				};
 				new_card.OnIsGoldChanged += New_card_OnIsGoldChanged;
@@ -151,9 +151,9 @@ namespace OWGoldenGuns
 				if (SaveData.Profiles.CurrentProfile != null)
 				{
 					c.IsEnabled = true;
-					if (SaveData.Profiles.CurrentProfile.IsGoldHeroes.ContainsKey(c.HeroID))
+					if (SaveData.Profiles.CurrentProfile.IsGoldHeroes.ContainsKey(c.HeroData.HeroID))
 					{
-						c.IsGold = SaveData.Profiles.CurrentProfile.IsGoldHeroes[c.HeroID];
+						c.IsGold = SaveData.Profiles.CurrentProfile.IsGoldHeroes[c.HeroData.HeroID];
 					}
 					else
 					{
@@ -243,6 +243,11 @@ namespace OWGoldenGuns
 			SettingsData.Settings.MainWindowLeft = (int)Left;
 			SettingsData.Settings.MainWindowWidth = (int)Width;
 			SettingsData.Settings.MainWindowHeight = (int)Height;
+		}
+
+		private void l_about_app_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			new AboutApp().ShowDialog();
 		}
 	}
 }

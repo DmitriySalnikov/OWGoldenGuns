@@ -55,28 +55,21 @@ namespace OWGoldenGuns
 					return;
 				_isGold = value;
 
-				if (SaveData.Profiles.CurrentProfile.IsGoldHeroes.ContainsKey(HeroID))
+				if (SaveData.Profiles.CurrentProfile.IsGoldHeroes.ContainsKey(_HeroData.HeroID))
 				{
 					if (!value)
-						SaveData.Profiles.CurrentProfile.IsGoldHeroes.Remove(HeroID);
+						SaveData.Profiles.CurrentProfile.IsGoldHeroes.Remove(_HeroData.HeroID);
 				}
 				else
 				{
 					if (value)
-						SaveData.Profiles.CurrentProfile.IsGoldHeroes.Add(HeroID, value);
+						SaveData.Profiles.CurrentProfile.IsGoldHeroes.Add(_HeroData.HeroID, value);
 				}
 				SaveData.Save();
 
 				OnIsGoldChanged?.Invoke(value);
 				UpdateState();
 			}
-		}
-
-		private string _heroID = "";
-		public string HeroID
-		{
-			get => _heroID;
-			set => _heroID = value;
 		}
 
 		private HeroesData.Hero _HeroData = null;

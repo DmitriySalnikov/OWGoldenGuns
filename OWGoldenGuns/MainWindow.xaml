@@ -78,5 +78,6 @@
 			Click="btn_remove_profile_Click"
 			Content="Remove" VerticalAlignment="Center" Margin="0,0,8,0" />
 		</StackPanel>
+		<Label x:Name="l_about_app" Content="About this app" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="#FF9345F1" Cursor="Hand" MouseDown="l_about_app_MouseDown"/>
 	</Grid>
 </Window>

@@ -14,8 +14,16 @@ namespace OWGoldenGuns
 	{
 		public class Hero
 		{
-			[JsonProperty("loc_name"), JsonRequired]
-			Dictionary<string, string> LocName = new Dictionary<string, string>();
+			[JsonProperty("name_en"), JsonRequired]
+			string NameEn = "";
+
+			[JsonProperty("hero_id"), JsonRequired]
+			string _HeroID = "";
+			[JsonIgnore]
+			public string HeroID
+			{
+				get => _HeroID;
+			}
 
 			[JsonProperty("icon_name"), JsonRequired]
 			private string _iconPath = "";
@@ -34,37 +42,12 @@ namespace OWGoldenGuns
 			[JsonIgnore]
 			public string Name
 			{
-				get
-				{
-					string locale = CultureInfo.CurrentCulture.Name;
-					if (LocName.ContainsKey(locale))
-					{
-						return LocName[locale];
-					}
-
-					locale = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-					if (LocName.ContainsKey(locale))
-					{
-						return LocName[locale];
-					}
-
-					if (LocName.ContainsKey("en"))
-					{
-						return LocName["en"];
-					}
-
-					if (LocName.Count > 0)
-					{
-						return LocName.First().Value;
-					}
-
-					return "Hero";
-				}
+				get => LocalizationUtils.GetString(_HeroID, NameEn);
 			}
 		}
 
 		const string HeroesDataFile = "Heroes.json";
-		public static Dictionary<string, Hero> Heroes = new Dictionary<string, Hero>();
+		public static List<Hero> Heroes = new List<Hero>();
 
 		/// <summary>
 		/// Return sorted heroes IDs
@@ -73,10 +56,12 @@ namespace OWGoldenGuns
 		public static List<string> GetHeroIDsSortedByLocalizedNames()
 		{
 			var names = Heroes.ToList();
-			names.Sort((p1, p2) => p1.Value.Name.CompareTo(p2.Value.Name));
-			var res = names.ToDictionary(k => k.Key, v => v.Value);
+			names.Sort((p1, p2) => p1.Name.CompareTo(p2.Name));
 
-			return res.Keys.ToList();
+			List<string> res = new List<string>();
+			names.ForEach((n) => res.Add(n.HeroID));
+
+			return res;
 		}
 
 		// Only for initial create of this file
@@ -109,7 +94,7 @@ namespace OWGoldenGuns
 
 				try
 				{
-					Heroes = JsonConvert.DeserializeObject<Dictionary<string, Hero>>(text);
+					Heroes = JsonConvert.DeserializeObject<List<Hero>>(text);
 				}
 				catch (Exception e)
 				{

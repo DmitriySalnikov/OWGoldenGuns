@@ -17,12 +17,11 @@ namespace OWGoldenGuns
 		private void Application_Startup(object sender, StartupEventArgs e)
 		{
 			SettingsData.Load();
+			LocalizationUtils.LoadLocalizations();
 
 			if (!LocalizationUtils.IsAvailableLocale(SettingsData.Settings.CurrentLocale))
 				SettingsData.Settings.CurrentLocale = "en";
 			System.Globalization.CultureInfo.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(SettingsData.Settings.CurrentLocale);
-
-			LocalizationUtils.LoadLocalizations();
 		}
 
 		private void Application_Exit(object sender, ExitEventArgs e)
