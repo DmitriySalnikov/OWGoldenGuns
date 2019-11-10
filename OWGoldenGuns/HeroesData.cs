@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Windows;
 
-namespace OWGoldGuns
+namespace OWGoldenGuns
 {
 	public static class HeroesData
 	{

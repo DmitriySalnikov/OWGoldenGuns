@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json;
 
-namespace OWGoldGuns
+namespace OWGoldenGuns
 {
 	public static class SaveData
 	{

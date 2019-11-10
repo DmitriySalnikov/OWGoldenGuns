@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OWGoldGuns
+namespace OWGoldenGuns
 {
 	/// <summary>
 	/// Interaction logic for HeroCard.xaml
