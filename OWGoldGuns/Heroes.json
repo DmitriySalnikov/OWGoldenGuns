@@ -1,0 +1,219 @@
+{
+	"ana": {
+		"loc_name": {
+			"en": "Ana",
+			"ru": "Ана"
+		},
+		"icon_name": "Ana.png"
+	},
+	"ashe": {
+		"loc_name": {
+			"en": "Ashe",
+			"ru": "Эш"
+		},
+		"icon_name": "Ashe.png"
+	},
+	"baptiste": {
+		"loc_name": {
+			"en": "Baptiste",
+			"ru": "Батист"
+		},
+		"icon_name": "Baptiste.png"
+	},
+	"bastion": {
+		"loc_name": {
+			"en": "Bastion",
+			"ru": "Бастион"
+		},
+		"icon_name": "Bastion.png"
+	},
+	"brigitte": {
+		"loc_name": {
+			"en": "Brigitte",
+			"ru": "Бригитта"
+		},
+		"icon_name": "Brigitte.png"
+	},
+	"dva": {
+		"loc_name": {
+			"en": "D.Va",
+			"ru": "D.Va"
+		},
+		"icon_name": "D.Va.png"
+	},
+	"doomfist": {
+		"loc_name": {
+			"en": "Doomfist",
+			"ru": "Кулак Смерти"
+		},
+		"icon_name": "Doomfist.png"
+	},
+	"genji": {
+		"loc_name": {
+			"en": "Genji",
+			"ru": "Гендзи"
+		},
+		"icon_name": "Genji.png"
+	},
+	"hanzo": {
+		"loc_name": {
+			"en": "Hanzo",
+			"ru": "Хандзо"
+		},
+		"icon_name": "Hanzo.png"
+	},
+	"junkrat": {
+		"loc_name": {
+			"en": "Junkrat",
+			"ru": "Крысавчик"
+		},
+		"icon_name": "Junkrat.png"
+	},
+	"lucio": {
+		"loc_name": {
+			"en": "Lúcio",
+			"ru": "Лусио"
+		},
+		"icon_name": "Lucio.png"
+	},
+	"mccree": {
+		"loc_name": {
+			"en": "McCree",
+			"ru": "МакКри"
+		},
+		"icon_name": "McCree.png"
+	},
+	"mei": {
+		"loc_name": {
+			"en": "Mei",
+			"ru": "Мэй"
+		},
+		"icon_name": "Mei.png"
+	},
+	"mercy": {
+		"loc_name": {
+			"en": "Mercy",
+			"ru": "Ангел"
+		},
+		"icon_name": "Mercy.png"
+	},
+	"moira": {
+		"loc_name": {
+			"en": "Moira",
+			"ru": "Мойра"
+		},
+		"icon_name": "Moira.png"
+	},
+	"orisa": {
+		"loc_name": {
+			"en": "Orisa",
+			"ru": "Ориса"
+		},
+		"icon_name": "Orisa.png"
+	},
+	"pharah": {
+		"loc_name": {
+			"en": "Pharah",
+			"ru": "Фарра"
+		},
+		"icon_name": "Pharah.png"
+	},
+	"reaper": {
+		"loc_name": {
+			"en": "Reaper",
+			"ru": "Жнец"
+		},
+		"icon_name": "Reaper.png"
+	},
+	"reinhardt": {
+		"loc_name": {
+			"en": "Reinhardt",
+			"ru": "Райнхардт"
+		},
+		"icon_name": "Reinhardt.png"
+	},
+	"roadhog": {
+		"loc_name": {
+			"en": "Roadhog",
+			"ru": "Турбосвин"
+		},
+		"icon_name": "Roadhog.png"
+	},
+	"sigma": {
+		"loc_name": {
+			"en": "Sigma",
+			"ru": "Сигма"
+		},
+		"icon_name": "Sigma.png"
+	},
+	"soldier_76": {
+		"loc_name": {
+			"en": "Soldier: 76",
+			"ru": "Солдат-76"
+		},
+		"icon_name": "Soldier_76.png"
+	},
+	"sombra": {
+		"loc_name": {
+			"en": "Sombra",
+			"ru": "Сомбра"
+		},
+		"icon_name": "Sombra.png"
+	},
+	"symmetra": {
+		"loc_name": {
+			"en": "Symmetra",
+			"ru": "Симметра"
+		},
+		"icon_name": "Symmetra.png"
+	},
+	"torbjorn": {
+		"loc_name": {
+			"en": "Torbjörn",
+			"ru": "Торбьорн"
+		},
+		"icon_name": "Torbjorn.png"
+	},
+	"tracer": {
+		"loc_name": {
+			"en": "Tracer",
+			"ru": "Трейсер"
+		},
+		"icon_name": "Tracer.png"
+	},
+	"widowmaker": {
+		"loc_name": {
+			"en": "Widowmaker",
+			"ru": "Роковая Вдова"
+		},
+		"icon_name": "Widowmaker.png"
+	},
+	"winston": {
+		"loc_name": {
+			"en": "Winston",
+			"ru": "Уинстон"
+		},
+		"icon_name": "Winston.png"
+	},
+	"wrecking_ball": {
+		"loc_name": {
+			"en": "Wrecking Ball",
+			"ru": "Таран"
+		},
+		"icon_name": "Wrecking_Ball.png"
+	},
+	"zarya": {
+		"loc_name": {
+			"en": "Zarya",
+			"ru": "Заря"
+		},
+		"icon_name": "Zarya.png"
+	},
+	"zenyatta": {
+		"loc_name": {
+			"en": "Zenyatta",
+			"ru": "Дзенъятта"
+		},
+		"icon_name": "Zenyatta.png"
+	}
+}
