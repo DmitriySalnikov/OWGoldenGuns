@@ -11,7 +11,7 @@
 	MinWidth="568"
 	MinHeight="609"
 	Icon="icon.png"
-	mc:Ignorable="d">
+	mc:Ignorable="d" Closing="Window_Closing">
 	<Grid>
 		<Grid.Background>
 			<ImageBrush
@@ -35,46 +35,48 @@
 			VerticalScrollBarVisibility="Auto">
 			<WrapPanel x:Name="wp_heroes" />
 		</ScrollViewer>
-		<ComboBox
-			x:Name="cb_profiles"
-			Width="236"
-			Margin="10,10,0,0"
-			HorizontalAlignment="Left"
-			VerticalAlignment="Top"
-			SelectionChanged="cb_profiles_SelectionChanged" />
-		<Button
-			x:Name="btn_add_profile"
-			Width="48"
-			Height="22"
-			Margin="251,10,0,0"
-			HorizontalAlignment="Left"
-			VerticalAlignment="Top"
-			Click="btn_add_profile_Click"
-			Content="Add" />
-		<Button
-			x:Name="btn_remove_profile"
-			Width="57"
-			Height="22"
-			Margin="304,10,0,0"
-			HorizontalAlignment="Left"
-			VerticalAlignment="Top"
-			Click="btn_remove_profile_Click"
-			Content="Remove" />
-		<Border
-			Width="200"
-			Height="37"
-			Margin="0,0,10,0"
-			Padding="0"
+		<StackPanel
+			Height="36"
+			Margin="0,1,10,0"
 			HorizontalAlignment="Right"
 			VerticalAlignment="Top"
-			BorderThickness="1">
+			FlowDirection="RightToLeft"
+			Orientation="Horizontal">
 			<TextBlock
 				x:Name="tb_golds"
 				HorizontalAlignment="Right"
 				VerticalAlignment="Center"
+				FlowDirection="LeftToRight"
 				FontFamily="/GoldenGuns;component/#BigNoodleTooOblique"
 				FontSize="36"
-				Text="dhjgk" />
-		</Border>
+				Text="dhjgk  " />
+			<Image Source="icon.png" />
+		</StackPanel>
+		<Image
+			x:Name="i_langs"
+			Height="30"
+			Margin="4,4,0,0"
+			VerticalAlignment="Top"
+			Cursor="Hand"
+			Source="icon_langs.png" MouseDown="i_langs_MouseDown" HorizontalAlignment="Left" Width="30" />
+		<StackPanel HorizontalAlignment="Left" Height="36" Margin="42,1,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+			<ComboBox
+			x:Name="cb_profiles"
+			Width="236"
+			HorizontalAlignment="Left"
+			SelectionChanged="cb_profiles_SelectionChanged" VerticalAlignment="Center" Margin="0,0,8,0" />
+			<Button
+			x:Name="btn_add_profile"
+			Height="22"
+			HorizontalAlignment="Left"
+			Click="btn_add_profile_Click"
+			Content="Add" VerticalAlignment="Center" Margin="0,0,8,0" />
+			<Button
+			x:Name="btn_remove_profile"
+			Height="22"
+			HorizontalAlignment="Left"
+			Click="btn_remove_profile_Click"
+			Content="Remove" VerticalAlignment="Center" Margin="0,0,8,0" />
+		</StackPanel>
 	</Grid>
 </Window>

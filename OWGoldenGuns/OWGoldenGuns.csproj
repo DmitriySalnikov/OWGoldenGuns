@@ -70,6 +70,11 @@
       <DependentUpon>AddProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="HeroesData.cs" />
+    <Compile Include="LanguageSelect.xaml.cs">
+      <DependentUpon>LanguageSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizationUtils.cs" />
+    <Compile Include="SettingsData.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Utils.cs" />
     <Page Include="AddProfile.xaml">
@@ -77,6 +82,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HeroCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LanguageSelect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,6 +119,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="icon_langs.png" />
     <Resource Include="icon.png" />
     <None Include="Icons\Ana.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -215,6 +225,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="app.manifest" />
+    <None Include="Langs\ru.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

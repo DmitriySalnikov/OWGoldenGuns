@@ -35,10 +35,31 @@ namespace OWGoldenGuns
 			}
 			else
 			{
-				MessageBox.Show("Heroes.json not found or corrupted.\nTry to reinstall this program.", "Error");
+				MessageBox.Show(LocalizationUtils.GetString("mainform_heroes_json_error", "Heroes.json not found or corrupted.\nTry to reinstall this program."),
+					LocalizationUtils.GetString("error", "Error")
+					);
 			}
 
 			UpdateProfilesList();
+			SortHeroCards();
+			UpdateLocale();
+
+			SettingsData.Settings.OnLocaleChanged += Settings_OnLocaleChanged;
+
+			if (SettingsData.Settings.MainWindowTop != null)
+				Top = (int)SettingsData.Settings.MainWindowTop;
+			if (SettingsData.Settings.MainWindowTop != null)
+				Left = (int)SettingsData.Settings.MainWindowLeft;
+			if (SettingsData.Settings.MainWindowWidth != null)
+				Width = (int)SettingsData.Settings.MainWindowWidth;
+			if (SettingsData.Settings.MainWindowHeight != null)
+				Height = (int)SettingsData.Settings.MainWindowHeight;
+		}
+
+		public void UpdateLocale()
+		{
+			btn_add_profile.Content = LocalizationUtils.GetString("mainform_add_profile", "Add");
+			btn_remove_profile.Content = LocalizationUtils.GetString("mainform_remove_profile", "Remove");
 		}
 
 		private void UpdateProfilesList()
@@ -53,6 +74,40 @@ namespace OWGoldenGuns
 
 			cb_profiles.SelectedItem = SaveData.Profiles.CurrentProfileName;
 			profile_changed_by_code = false;
+		}
+
+		// mb its not optimal, but its a working way of sorting :)
+		private void SortHeroCards()
+		{
+			var children_array = new UIElement[wp_heroes.Children.Count];
+			wp_heroes.Children.CopyTo(children_array, 0);
+			wp_heroes.Children.Clear();
+			List<UIElement> prevChildren = children_array.ToList();
+			List<HeroCard> note_used = new List<HeroCard>();
+
+			List<string> ids = HeroesData.GetHeroIDsSortedByLocalizedNames();
+
+			foreach (string n in ids)
+			{
+				bool isfound = false;
+				HeroCard prev_card = null;
+				foreach (HeroCard u in prevChildren)
+				{
+					if (u.HeroID == n)
+					{
+						prev_card = u;
+						wp_heroes.Children.Add(u);
+						isfound = true;
+					}
+				}
+
+				if (isfound)
+				{
+					prevChildren.Remove(prev_card);
+				}
+			}
+
+			prevChildren.ForEach((e) => wp_heroes.Children.Add(e));
 		}
 
 		private void LoadHeroesList()
@@ -122,7 +177,13 @@ namespace OWGoldenGuns
 			}
 
 			// 2 spaces in end of line for strange OW font
-			tb_golds.Text = $"Gold {golds}/{HeroesData.Heroes.Count}  ";
+			tb_golds.Text = $"{golds}/{HeroesData.Heroes.Count}  ";
+		}
+
+		private void Settings_OnLocaleChanged(string locale)
+		{
+			SortHeroCards();
+			UpdateLocale();
 		}
 
 		private void New_card_OnIsGoldChanged(bool isgold)
@@ -155,10 +216,33 @@ namespace OWGoldenGuns
 
 		private void btn_remove_profile_Click(object sender, RoutedEventArgs e)
 		{
-			SaveData.Profiles.RemoveProfile((string)cb_profiles.SelectedItem);
+			if (MessageBox.Show(string.Format(LocalizationUtils.GetString("mainform_confirm_remove_text", "Do you really want to remove profile {0}?"), (string)cb_profiles.SelectedItem),
+				LocalizationUtils.GetString("mainform_confirm_remove_title", "Please confirm..."), MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+			{
+				SaveData.Profiles.RemoveProfile((string)cb_profiles.SelectedItem);
 
-			UpdateProfilesList();
-			UpdateCards();
+				UpdateProfilesList();
+				UpdateCards();
+			}
+		}
+
+		private void i_langs_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			var lang_sel = new LanguageSelect();
+			bool? res = lang_sel.ShowDialog();
+
+			if (res != null && res == true)
+			{
+				SettingsData.Settings.CurrentLocale = lang_sel.selected_lang;
+			}
+		}
+
+		private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			SettingsData.Settings.MainWindowTop = (int)Top;
+			SettingsData.Settings.MainWindowLeft = (int)Left;
+			SettingsData.Settings.MainWindowWidth = (int)Width;
+			SettingsData.Settings.MainWindowHeight = (int)Height;
 		}
 	}
 }

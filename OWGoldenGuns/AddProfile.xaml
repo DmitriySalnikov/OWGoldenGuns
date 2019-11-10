@@ -16,6 +16,7 @@
 	mc:Ignorable="d">
 	<Grid>
 		<Label
+			x:Name="l_profile_name"
 			Margin="10,10,10,0"
 			VerticalAlignment="Top"
 			Content="New profile name:" />

@@ -27,6 +27,21 @@ namespace OWGoldenGuns
 			tb_name.Focus();
 			tb_name.SelectAll();
 			CheckIsValidText();
+			UpdateLocale();
+
+			SettingsData.Settings.OnLocaleChanged += Settings_OnLocaleChanged;
+		}
+
+		private void Settings_OnLocaleChanged(string locale)
+		{
+			UpdateLocale();
+		}
+
+		public void UpdateLocale()
+		{
+			Title = LocalizationUtils.GetString("add_profile_title", "Add New Profile");
+			l_profile_name.Content = LocalizationUtils.GetString("add_profile_label", "New profile name:");
+			btn_ok.Content = LocalizationUtils.GetString("add_profile_button", "Add Profile");
 		}
 
 		private void CheckIsValidText()

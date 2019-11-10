@@ -1,0 +1,33 @@
+{
+	// Shared
+	"error": "Ошибка",
+	"apply": "Применить",
+	// HeroesData
+	"heroesdata_cant_write": "Невозможно записать файл информации о героях!",
+	"heroesdata_cant_read": "Невозможно прочитать файл информации о героях!",
+	"heroesdata_cant_parse": "Невозможно обрабтать файл информации о героях!",
+	// SaveData
+	"savedata_cant_write": "Невозможно записать файл профилей!",
+	"savedata_cant_read": "Невозможно прочитать файл профилей!",
+	"savedata_cant_parse": "Невозможно обрабтать файл профилей!",
+	// SettingsData
+	"settingsdata_cant_write": "Невозможно записать файл настроек!",
+	"settingsdata_cant_read": "Невозможно прочитать файл настроек!",
+	"settingsdata_cant_parse": "Невозможно обрабтать файл настроек!",
+	// MainForm
+	"mainform_add_profile": "Добавить",
+	"mainform_remove_profile": "Удалить",
+	"mainform_heroes_json_error": "Heroes.json не найден или испорчен.\nПопробуйте переустановить программу.",
+	"mainform_confirm_remove_text": "Вы уверены что хотите удалить профиль {0}?",
+	"mainform_confirm_remove_title": "Пожалуйста, подтвердите...",
+	// Language Select
+	"selectlang_title": "Выберите язык",
+	"selectlang_show_only": "Показать только доступные языки",
+	// Add Profile
+	"add_profile_title": "Добавить новый профиль",
+	"add_profile_label": "Название нового профиля:",
+	"add_profile_button": "Добавить профиль",
+	// HeroCard
+	"herocard_question": "Вы действительно хотите удалить золотое оружие у персонажа \"{0}\"?",
+	"herocard_isitmistake": "Это ошибка?",
+}

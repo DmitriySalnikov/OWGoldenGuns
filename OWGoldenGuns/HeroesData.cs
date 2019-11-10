@@ -66,7 +66,20 @@ namespace OWGoldenGuns
 		const string HeroesDataFile = "Heroes.json";
 		public static Dictionary<string, Hero> Heroes = new Dictionary<string, Hero>();
 
-		// Only for initial crate of this file
+		/// <summary>
+		/// Return sorted heroes IDs
+		/// </summary>
+		/// <returns></returns>
+		public static List<string> GetHeroIDsSortedByLocalizedNames()
+		{
+			var names = Heroes.ToList();
+			names.Sort((p1, p2) => p1.Value.Name.CompareTo(p2.Value.Name));
+			var res = names.ToDictionary(k => k.Key, v => v.Value);
+
+			return res.Keys.ToList();
+		}
+
+		// Only for initial create of this file
 		public static void Save()
 		{
 			try
@@ -75,7 +88,7 @@ namespace OWGoldenGuns
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show("Error! Can't write heroes data file!\n" + e.Message);
+				MessageBox.Show(LocalizationUtils.GetString("heroesdata_cant_write", "Can't write heroes data file!") + "\n" + e.Message, LocalizationUtils.GetString("error", "Error"));
 			}
 		}
 
@@ -90,7 +103,7 @@ namespace OWGoldenGuns
 				}
 				catch (Exception e)
 				{
-					MessageBox.Show("Error! Can't read heroes data file!\n" + e.Message);
+					MessageBox.Show(LocalizationUtils.GetString("heroesdata_cant_read", "Can't read heroes data file!") + "\n" + e.Message, LocalizationUtils.GetString("error", "Error"));
 					return;
 				}
 
@@ -100,7 +113,7 @@ namespace OWGoldenGuns
 				}
 				catch (Exception e)
 				{
-					MessageBox.Show("Error! Can't parse heroes data file!\n" + e.Message);
+					MessageBox.Show(LocalizationUtils.GetString("heroesdata_cant_parse", "Can't parse heroes data file!") + "\n" + e.Message, LocalizationUtils.GetString("error", "Error"));
 					return;
 				}
 			}

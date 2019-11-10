@@ -96,6 +96,13 @@ namespace OWGoldenGuns
 		{
 			InitializeComponent();
 			UpdateColors();
+
+			SettingsData.Settings.OnLocaleChanged += Settings_OnLocaleChanged;
+		}
+
+		private void Settings_OnLocaleChanged(string locale)
+		{
+			UpdateCard();
 		}
 
 		public void UpdateCard()
@@ -160,7 +167,7 @@ namespace OWGoldenGuns
 					border_color = System.Windows.Media.Color.FromRgb(255 - hover_offset, 205 - hover_offset, 36 - hover_offset);
 					break;
 				case CardState.Disabled:
-					bg_color1 = System.Windows.Media.Color.FromRgb(100,100, 100);
+					bg_color1 = System.Windows.Media.Color.FromRgb(100, 100, 100);
 					bg_color2 = System.Windows.Media.Color.FromRgb(80, 80, 80);
 					border_color = System.Windows.Media.Color.FromRgb(106, 106, 106);
 					break;
@@ -185,8 +192,11 @@ namespace OWGoldenGuns
 					IsGold = true;
 				else
 				{
-					if (MessageBox.Show(string.Format("Do you really want to remove {0}’s golden gun", HeroData.Name), "Is it a mistake?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+					if (MessageBox.Show(string.Format(LocalizationUtils.GetString("herocard_question", "Do you really want to remove {0}’s golden gun?"), HeroData.Name),
+						LocalizationUtils.GetString("herocard_isitmistake", "Is it a mistake?"), MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+					{
 						IsGold = false;
+					}
 				}
 			}
 		}

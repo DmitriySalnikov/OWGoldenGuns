@@ -77,7 +77,7 @@ namespace OWGoldenGuns
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show("Error! Can't write save file!\n" + e.Message);
+				MessageBox.Show(LocalizationUtils.GetString("savedata_cant_write", "Can't write profiles file!") + "\n" + e.Message, LocalizationUtils.GetString("error", "Error"));
 			}
 		}
 
@@ -92,7 +92,7 @@ namespace OWGoldenGuns
 				}
 				catch (Exception e)
 				{
-					MessageBox.Show("Error! Can't read save file!\n" + e.Message);
+					MessageBox.Show(LocalizationUtils.GetString("savedata_cant_read", "Can't read profiles file!") + "\n" + e.Message, LocalizationUtils.GetString("error", "Error"));
 					return;
 				}
 
@@ -102,7 +102,7 @@ namespace OWGoldenGuns
 				}
 				catch (Exception e)
 				{
-					MessageBox.Show("Error! Can't parse save file!\n" + e.Message);
+					MessageBox.Show(LocalizationUtils.GetString("savedata_cant_parse", "Can't parse profiles file!") + "\n" + e.Message, LocalizationUtils.GetString("error", "Error"));
 					return;
 				}
 			}
