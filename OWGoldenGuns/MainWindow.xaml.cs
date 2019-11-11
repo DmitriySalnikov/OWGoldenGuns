@@ -54,6 +54,8 @@ namespace OWGoldenGuns
 				Width = (int)SettingsData.Settings.MainWindowWidth;
 			if (SettingsData.Settings.MainWindowHeight != null)
 				Height = (int)SettingsData.Settings.MainWindowHeight;
+
+			WindowState = SettingsData.Settings.MainWindowMaximized ? WindowState.Maximized : WindowState.Normal;
 		}
 
 		public void UpdateLocale()
@@ -243,6 +245,7 @@ namespace OWGoldenGuns
 			SettingsData.Settings.MainWindowLeft = (int)Left;
 			SettingsData.Settings.MainWindowWidth = (int)Width;
 			SettingsData.Settings.MainWindowHeight = (int)Height;
+			SettingsData.Settings.MainWindowMaximized = WindowState == WindowState.Maximized ? true : false;
 		}
 
 		private void l_about_app_MouseDown(object sender, MouseButtonEventArgs e)

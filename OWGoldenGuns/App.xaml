@@ -3,7 +3,8 @@
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:local="clr-namespace:OWGoldenGuns"
+	Exit="Application_Exit"
 	Startup="Application_Startup"
-	StartupUri="MainWindow.xaml" Exit="Application_Exit">
+	StartupUri="MainWindow.xaml">
 	<Application.Resources />
 </Application>

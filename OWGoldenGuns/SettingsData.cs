@@ -53,6 +53,8 @@ namespace OWGoldenGuns
 			public int? MainWindowWidth = null;
 			[JsonProperty("mf_height")]
 			public int? MainWindowHeight = null;
+			[JsonProperty("mf_maximized")]
+			public bool MainWindowMaximized = false;
 		}
 
 		const string SaveFile = "Settings.json";

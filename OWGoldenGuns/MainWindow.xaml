@@ -10,8 +10,9 @@
 	Height="788"
 	MinWidth="568"
 	MinHeight="609"
+	Closing="Window_Closing"
 	Icon="icon.png"
-	mc:Ignorable="d" Closing="Window_Closing">
+	mc:Ignorable="d">
 	<Grid>
 		<Grid.Background>
 			<ImageBrush
@@ -54,30 +55,52 @@
 		</StackPanel>
 		<Image
 			x:Name="i_langs"
+			Width="30"
 			Height="30"
 			Margin="4,4,0,0"
+			HorizontalAlignment="Left"
 			VerticalAlignment="Top"
 			Cursor="Hand"
-			Source="icon_langs.png" MouseDown="i_langs_MouseDown" HorizontalAlignment="Left" Width="30" />
-		<StackPanel HorizontalAlignment="Left" Height="36" Margin="42,1,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+			MouseDown="i_langs_MouseDown"
+			Source="icon_langs.png" />
+		<StackPanel
+			Height="36"
+			Margin="42,1,0,0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Orientation="Horizontal">
 			<ComboBox
-			x:Name="cb_profiles"
-			Width="236"
-			HorizontalAlignment="Left"
-			SelectionChanged="cb_profiles_SelectionChanged" VerticalAlignment="Center" Margin="0,0,8,0" />
+				x:Name="cb_profiles"
+				Width="236"
+				Margin="0,0,8,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				SelectionChanged="cb_profiles_SelectionChanged" />
 			<Button
-			x:Name="btn_add_profile"
-			Height="22"
-			HorizontalAlignment="Left"
-			Click="btn_add_profile_Click"
-			Content="Add" VerticalAlignment="Center" Margin="0,0,8,0" />
+				x:Name="btn_add_profile"
+				Height="22"
+				Margin="0,0,8,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				Click="btn_add_profile_Click"
+				Content="Add" />
 			<Button
-			x:Name="btn_remove_profile"
-			Height="22"
-			HorizontalAlignment="Left"
-			Click="btn_remove_profile_Click"
-			Content="Remove" VerticalAlignment="Center" Margin="0,0,8,0" />
+				x:Name="btn_remove_profile"
+				Height="22"
+				Margin="0,0,8,0"
+				HorizontalAlignment="Left"
+				VerticalAlignment="Center"
+				Click="btn_remove_profile_Click"
+				Content="Remove" />
 		</StackPanel>
-		<Label x:Name="l_about_app" Content="About this app" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="#FF9345F1" Cursor="Hand" MouseDown="l_about_app_MouseDown"/>
+		<Label
+			x:Name="l_about_app"
+			Height="26"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			Content="About this app"
+			Cursor="Hand"
+			Foreground="#FF9345F1"
+			MouseDown="l_about_app_MouseDown" />
 	</Grid>
 </Window>
