@@ -1,3 +1,4 @@
+// Icons taken at https://playoverwatch.com/en-us/heroes
 [
 	{
 		"hero_id": "ana",
@@ -33,6 +34,11 @@
 		"hero_id": "doomfist",
 		"name_en": "Doomfist",
 		"icon_name": "Doomfist.png"
+	},
+	{
+		"hero_id": "echo",
+		"name_en": "Echo",
+		"icon_name": "Echo.png"
 	},
 	{
 		"hero_id": "genji",

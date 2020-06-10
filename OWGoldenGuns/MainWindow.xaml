@@ -9,7 +9,7 @@
 	Width="890"
 	Height="788"
 	MinWidth="568"
-	MinHeight="609"
+	MinHeight="610"
 	Closing="Window_Closing"
 	Icon="icon.png"
 	mc:Ignorable="d">
